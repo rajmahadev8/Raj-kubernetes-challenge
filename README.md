@@ -69,7 +69,11 @@ Set your current namespace to use `cockroach-operator-system`.
 kubectl config set-context --current --namespace=cockroach-operator-system
 ```
 
-Validate that the Operator is running using `kubectl get pods` and verify the status is set to Running
+Validate that the Operator is running:
+```sh
+kubectl get pods
+```
+![getpods](images/9.png)
 
 ## Intializing Cluster.
 Download example.yaml, a custom resource that tells the Operator how to configure the Kubernetes cluster.
@@ -83,6 +87,8 @@ kubectl apply -f example.yaml
 ![intialize](https://cdn.discordapp.com/attachments/825650767318220802/925418795093336104/init.png)
 
 check that the pods were created using `kubectl get pods --watch` and make sure that status of pods is Running.
+You can verify it too in your Digital Ocean Kubernetes GUI
+![verify](images/8.jpeg)
 
 ## Use the built-in SQL client
 To use the CockroachDB SQL client, first launch a secure pod running the `cockroach` binary.
