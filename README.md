@@ -16,7 +16,7 @@ Some prerequisites:
 
 The process to deploy on Kubernetes was simple. I just followed the instructions in [CockroachDB official documentation](https://www.cockroachlabs.com/docs/v21.2/deploy-cockroachdb-with-kubernetes.html), with just one change - In ["Step 1. Start Kubernetes"](https://www.cockroachlabs.com/docs/v21.2/deploy-cockroachdb-with-kubernetes.html#step-1-start-kubernetes), instead of using hosted GKE or EKS (as mentioned in the docs), I used DigitalOcean's [Managed Kubernetes](https://www.digitalocean.com/products/kubernetes/) service.
 
-### STEP-1: Set up a cluster using the GUI.
+## Set up a cluster using the GUI.
 **1.1** On dashboard of Digital ocean click on Kubernetes on left hand side menu
 
 **1.2** Now in kubernetes, click the Create kubernetes cluster button.
@@ -37,7 +37,7 @@ The process to deploy on Kubernetes was simple. I just followed the instructions
 
 **After the successful creation Now we will setup CockroachDB in our cluster**.
 
-### STEP-2: Connecting to Kubernetes Cluster.
+## Connecting to Kubernetes Cluster.
 **2.1** After the successful creation of the cluster, you will be greeted with a panel like this, Download the config file from the dashbord:
 ![configfile](images/6.png)
 
@@ -45,7 +45,7 @@ The process to deploy on Kubernetes was simple. I just followed the instructions
 ```sh
 export KUBECONFIG=kube_config_cluster.yml
 ```
-### STEP-3: Deploy CockroachDB in Kubernetes Cluster.
+## Deploy CockroachDB in Kubernetes Cluster.
 Apply the [custom resource definition (CRD)](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions) for the Operator:
 
 
@@ -71,7 +71,7 @@ kubectl config set-context --current --namespace=cockroach-operator-system
 
 Validate that the Operator is running using `kubectl get pods` and verify the status is set to Running
 
-### STEP-3: Intializing Cluster.
+## Intializing Cluster.
 Download example.yaml, a custom resource that tells the Operator how to configure the Kubernetes cluster.
 
 ```sh
@@ -84,7 +84,7 @@ kubectl apply -f example.yaml
 
 check that the pods were created using `kubectl get pods --watch` and make sure that status of pods is Running.
 
-### STEP-4: Use the built-in SQL client
+## Use the built-in SQL client
 To use the CockroachDB SQL client, first launch a secure pod running the `cockroach` binary.
 
 ```sh
@@ -99,6 +99,6 @@ kubectl exec -it cockroachdb-client-secure \
 --certs-dir=/cockroach/cockroach-certs \
 --host=cockroachdb-public
 ```
-![sql](7.png)
+![sql](images/7.jpeg)
 
 
