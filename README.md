@@ -1,6 +1,7 @@
 # raj-kubernetes-challenge
 
 # Deploy cockroachDB cluster on Kubernetes
+
 ## _Deploy cockroachDB Cluster on DigitalOcean Kubernetes_
 
 
@@ -9,6 +10,9 @@
 For the [DigitalOcean Kubernetes Challenge](https://www.digitalocean.com/community/pages/kubernetes-challenge), I wanted to deploy a SQL database to a managed Kubernetes cluster, and decided to go with [CockroachDB](https://www.cockroachlabs.com/docs/stable/install-cockroachdb-windows.html).
 ## Getting started
 In this guide you will get to know how to deploy cockroachDB Cluster on DigitalOcean Kubernetes (DOKS)
+Some prerequisites:
+- Git installed on your system
+- [kubectl](https://kubernetes.io/docs/tasks/tools/) commandline tool installed
 
 The process to deploy on Kubernetes was simple. I just followed the instructions in [CockroachDB official documentation](https://www.cockroachlabs.com/docs/v21.2/deploy-cockroachdb-with-kubernetes.html), with just one change - In ["Step 1. Start Kubernetes"](https://www.cockroachlabs.com/docs/v21.2/deploy-cockroachdb-with-kubernetes.html#step-1-start-kubernetes), instead of using hosted GKE or EKS (as mentioned in the docs), I used DigitalOcean's [Managed Kubernetes](https://www.digitalocean.com/products/kubernetes/) service.
 
